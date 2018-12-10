@@ -22,14 +22,8 @@ JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.di
 #   6. Most common crime that year
 
 
-input = neighborhood.capitalize()
-
 test = "CENTRAL AREA/SQUIRE PARK"
 import info
-
-
-client = Socrata('data.seattle.gov',app_token = info.token,username=info.username, password=info.password)
-results = client.get("xurz-654a", neighborhood = input, limit=100000000)
 
 
 #Get crimes over the years
@@ -128,6 +122,11 @@ class GetData(webapp2.RequestHandler):
         sub = self.request.get('submit')
         logging.info(name)
         logging.info(sub)
+        
+        input = name.capatalize()
+        
+        client = Socrata('data.seattle.gov',app_token = info.token,username=info.username, password=info.password)
+        results = client.get("xurz-654a", neighborhood = input, limit=100000000)
 
         # -1-
         yearlist = plotCrime(results)
