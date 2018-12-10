@@ -1,17 +1,4 @@
-from sodapy import Socrata
-matplotlib.pyplot
-numpy
-jinja2
-os
-webapp2
-logging
 
-# dotenv
-.env
 
-# virtualenv
-.venv
-venv/
-ENV/
-
+gunicorn==19.7.1
 
