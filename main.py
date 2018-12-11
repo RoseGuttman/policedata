@@ -10,7 +10,7 @@ JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.di
     autoescape=True)
 
 # Information at https://dev.socrata.com/foundry/data.seattle.gov/xurz-654a
-# time stamp info https://dev.socrata.com/docs/datatypes/floating_timestamp.html#,
+
 
 #This program creates content for the Neighborhood Crime Dashboard
 #Data created:
@@ -22,8 +22,14 @@ JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.di
 #   6. Most common crime that year
 
 
-test = "CENTRAL AREA/SQUIRE PARK"
-import info
+
+# import info
+# api username/token/passoword infromation from a file "info" not provided, you can access the api without 
+# a token:
+# Unauthenticated client only works with public data sets. Note 'None'
+# in place of application token, and no username or password:
+# client = Socrata("data.seattle.gov", None)
+
 
 
 #Get crimes over the years
@@ -116,7 +122,7 @@ def barGraph(dict_data, label, title, fig, num):
     plt.close()
 
 
-
+    
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -176,4 +182,4 @@ application = webapp2.WSGIApplication([
                                       ],
                                      debug=True)
 
-#encoding="utf-8"
+
