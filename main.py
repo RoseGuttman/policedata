@@ -86,12 +86,21 @@ def yearDetails(data):
 
 
 #Create a bar graph from a dictionary
-def barGraph(dict_data, label, title, fig):
+def barGraph(dict_data, label, title, fig, num):
     topic_nums = ()
     topic_names = ()
+    if num == "YES":
+        for key in dict_data:
+            num = dict_data[key]
+            name = int(key)
+            del dict_data[key]
+            dict_data[name] = num
+        topic_names = sorted(dict_data.keys())
+    else:
+        for item in dict_data.keys():
+            topic_names = topic_names + (item,)
     for item in dict_data.keys():
         topic_nums = topic_nums + (dict_data[item],)
-        topic_names = topic_names + (item,)
 
     y_pos = np.arange(len(topic_names))
 
@@ -101,6 +110,7 @@ def barGraph(dict_data, label, title, fig):
     plt.ylabel(label)
     plt.title(title)
 
+    plt.tight_layout()
     plt.savefig(fig)
     #plt.show()
     plt.close()
@@ -110,8 +120,7 @@ def barGraph(dict_data, label, title, fig):
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        #print statements don't work well
-        #print "In MainHandler"
+        print ("Choose a neighborhood from the list")
         return
 
 class GetData(webapp2.RequestHandler):
