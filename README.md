@@ -9,5 +9,5 @@ Data created:
 #   5. The most common crime in that neighborhood
 #   6. Most common crime that year
 
-#You can find more information about this API at:
-#https://dev.socrata.com/foundry/data.seattle.gov/xurz-654a
+You can find more information about this API at:
+https://dev.socrata.com/foundry/data.seattle.gov/xurz-654a
